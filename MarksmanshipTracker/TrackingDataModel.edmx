@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TrackingDataModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\rick\Documents\Visual Studio 2015\Projects\MarksmanshipTracker\MarksmanshipTracker\TrackingData.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Awards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AwardName" Type="varchar" MaxLength="50" />
+          <Property Name="WeaponName" Type="varchar" MaxLength="50" />
+          <Property Name="MinCredits" Type="integer" />
+        </EntityType>
+        <EntityType Name="Branches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyName" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyValue" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameName" Type="varchar" MaxLength="50" />
+          <Property Name="RMAWeapon" Type="varchar" MaxLength="50" />
+          <Property Name="RMNWeapon" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RMNId" Type="varchar" MaxLength="20" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="BranchId" Type="integer" />
+          <Property Name="RankId" Type="integer" />
+          <Property Name="ShipId" Type="integer" />
+        </EntityType>
+        <EntityType Name="PeopleAwards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="integer" />
+          <Property Name="AwardId" Type="integer" />
+          <Property Name="DateAwarded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Ranks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BranchId" Type="integer" />
+          <Property Name="RankName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameId" Type="integer" />
+          <Property Name="SessionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SessionParticipants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SessionId" Type="integer" />
+          <Property Name="PersonId" Type="integer" />
+          <Property Name="Minutes" Type="integer" />
+          <Property Name="Credits" Type="decimal" Precision="53" Scale="0" />
+        </EntityType>
+        <EntityType Name="Ships">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_People_0_0">
+          <End Role="Ships" Type="Self.Ships" Multiplicity="0..1" />
+          <End Role="People" Type="Self.People" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_1_0">
+          <End Role="Ranks" Type="Self.Ranks" Multiplicity="0..1" />
+          <End Role="People" Type="Self.People" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ranks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="RankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_2_0">
+          <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
+          <End Role="People" Type="Self.People" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeopleAwards_0_0">
+          <End Role="Awards" Type="Self.Awards" Multiplicity="0..1" />
+          <End Role="PeopleAwards" Type="Self.PeopleAwards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Awards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PeopleAwards">
+              <PropertyRef Name="AwardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeopleAwards_1_0">
+          <End Role="People" Type="Self.People" Multiplicity="0..1" />
+          <End Role="PeopleAwards" Type="Self.PeopleAwards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PeopleAwards">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ranks_0_0">
+          <End Role="Branches" Type="Self.Branches" Multiplicity="0..1" />
+          <End Role="Ranks" Type="Self.Ranks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ranks">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_0_0">
+          <End Role="Games" Type="Self.Games" Multiplicity="0..1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SessionParticipants_0_0">
+          <End Role="People" Type="Self.People" Multiplicity="0..1" />
+          <End Role="SessionParticipants" Type="Self.SessionParticipants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SessionParticipants">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SessionParticipants_1_0">
+          <End Role="Session" Type="Self.Session" Multiplicity="0..1" />
+          <End Role="SessionParticipants" Type="Self.SessionParticipants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SessionParticipants">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrackingDataModelStoreContainer">
+          <EntitySet Name="Awards" EntityType="Self.Awards" store:Type="Tables" />
+          <EntitySet Name="Branches" EntityType="Self.Branches" store:Type="Tables" />
+          <EntitySet Name="Config" EntityType="Self.Config" store:Type="Tables" />
+          <EntitySet Name="Games" EntityType="Self.Games" store:Type="Tables" />
+          <EntitySet Name="People" EntityType="Self.People" store:Type="Tables" />
+          <EntitySet Name="PeopleAwards" EntityType="Self.PeopleAwards" store:Type="Tables" />
+          <EntitySet Name="Ranks" EntityType="Self.Ranks" store:Type="Tables" />
+          <EntitySet Name="Session" EntityType="Self.Session" store:Type="Tables" />
+          <EntitySet Name="SessionParticipants" EntityType="Self.SessionParticipants" store:Type="Tables" />
+          <EntitySet Name="Ships" EntityType="Self.Ships" store:Type="Tables" />
+          <AssociationSet Name="FK_People_0_0" Association="Self.FK_People_0_0">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_1_0" Association="Self.FK_People_1_0">
+            <End Role="Ranks" EntitySet="Ranks" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_2_0" Association="Self.FK_People_2_0">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeopleAwards_0_0" Association="Self.FK_PeopleAwards_0_0">
+            <End Role="Awards" EntitySet="Awards" />
+            <End Role="PeopleAwards" EntitySet="PeopleAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeopleAwards_1_0" Association="Self.FK_PeopleAwards_1_0">
+            <End Role="People" EntitySet="People" />
+            <End Role="PeopleAwards" EntitySet="PeopleAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ranks_0_0" Association="Self.FK_Ranks_0_0">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="Ranks" EntitySet="Ranks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_0_0" Association="Self.FK_Session_0_0">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SessionParticipants_0_0" Association="Self.FK_SessionParticipants_0_0">
+            <End Role="People" EntitySet="People" />
+            <End Role="SessionParticipants" EntitySet="SessionParticipants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SessionParticipants_1_0" Association="Self.FK_SessionParticipants_1_0">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="SessionParticipants" EntitySet="SessionParticipants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrackingDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Award">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AwardName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MinCredits" Type="Int64" />
+          <NavigationProperty Name="PeopleAwards" Relationship="Self.FK_PeopleAwards_0_0" FromRole="Awards" ToRole="PeopleAwards" />
+          <Property Name="WeaponName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="People" Relationship="Self.FK_People_2_0" FromRole="Branches" ToRole="People" />
+          <NavigationProperty Name="Ranks" Relationship="Self.FK_Ranks_0_0" FromRole="Branches" ToRole="Ranks" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RMAWeapon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RMNWeapon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sessions" Relationship="Self.FK_Session_0_0" FromRole="Games" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RMNId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="BranchId" Type="Int64" Nullable="false" DefaultValue="1" />
+          <Property Name="RankId" Type="Int64" Nullable="false" DefaultValue="1" />
+          <Property Name="ShipId" Type="Int64" Nullable="false" DefaultValue="1" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_People_2_0" FromRole="People" ToRole="Branches" />
+          <NavigationProperty Name="Ship" Relationship="Self.FK_People_0_0" FromRole="People" ToRole="Ships" />
+          <NavigationProperty Name="Rank" Relationship="Self.FK_People_1_0" FromRole="People" ToRole="Ranks" />
+          <NavigationProperty Name="PeopleAwards" Relationship="Self.FK_PeopleAwards_1_0" FromRole="People" ToRole="PeopleAwards" />
+          <NavigationProperty Name="SessionParticipants" Relationship="Self.FK_SessionParticipants_0_0" FromRole="People" ToRole="SessionParticipants" />
+        </EntityType>
+        <EntityType Name="PeopleAward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int64" Nullable="false" />
+          <Property Name="AwardId" Type="Int64" Nullable="false" />
+          <Property Name="DateAwarded" Type="DateTime" />
+          <NavigationProperty Name="Award" Relationship="Self.FK_PeopleAwards_0_0" FromRole="PeopleAwards" ToRole="Awards" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PeopleAwards_1_0" FromRole="PeopleAwards" ToRole="People" />
+        </EntityType>
+        <EntityType Name="Rank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchId" Type="Int64" Nullable="false" />
+          <Property Name="RankName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Branch" Relationship="Self.FK_Ranks_0_0" FromRole="Ranks" ToRole="Branches" />
+          <NavigationProperty Name="People" Relationship="Self.FK_People_1_0" FromRole="Ranks" ToRole="People" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionDate" Type="DateTime" />
+          <Property Name="GameId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="Self.FK_Session_0_0" FromRole="Session" ToRole="Games" />
+          <NavigationProperty Name="SessionParticipants" Relationship="Self.FK_SessionParticipants_1_0" FromRole="Session" ToRole="SessionParticipants" />
+        </EntityType>
+        <EntityType Name="SessionParticipant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="Int64" Nullable="false" />
+          <Property Name="PersonId" Type="Int64" Nullable="false" />
+          <Property Name="Minutes" Type="Int64" />
+          <Property Name="Credits" Type="Decimal" Precision="53" Scale="0" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_SessionParticipants_0_0" FromRole="SessionParticipants" ToRole="People" />
+          <NavigationProperty Name="Session" Relationship="Self.FK_SessionParticipants_1_0" FromRole="SessionParticipants" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Ship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="People" Relationship="Self.FK_People_0_0" FromRole="Ships" ToRole="People" />
+        </EntityType>
+        <Association Name="FK_PeopleAwards_0_0">
+          <End Role="Awards" Type="Self.Award" Multiplicity="1" />
+          <End Role="PeopleAwards" Type="Self.PeopleAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Awards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PeopleAwards">
+              <PropertyRef Name="AwardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_2_0">
+          <End Role="Branches" Type="Self.Branch" Multiplicity="1" />
+          <End Role="People" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ranks_0_0">
+          <End Role="Branches" Type="Self.Branch" Multiplicity="1" />
+          <End Role="Ranks" Type="Self.Rank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ranks">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_0_0">
+          <End Role="Games" Type="Self.Game" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_0_0">
+          <End Role="Ships" Type="Self.Ship" Multiplicity="1" />
+          <End Role="People" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_1_0">
+          <End Role="Ranks" Type="Self.Rank" Multiplicity="1" />
+          <End Role="People" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ranks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="RankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PeopleAwards_1_0">
+          <End Role="People" Type="Self.Person" Multiplicity="1" />
+          <End Role="PeopleAwards" Type="Self.PeopleAward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PeopleAwards">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SessionParticipants_0_0">
+          <End Role="People" Type="Self.Person" Multiplicity="1" />
+          <End Role="SessionParticipants" Type="Self.SessionParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SessionParticipants">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SessionParticipants_1_0">
+          <End Role="Session" Type="Self.Session" Multiplicity="1" />
+          <End Role="SessionParticipants" Type="Self.SessionParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SessionParticipants">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrackingDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Awards" EntityType="Self.Award" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="PeopleAwards" EntityType="Self.PeopleAward" />
+          <EntitySet Name="Ranks" EntityType="Self.Rank" />
+          <EntitySet Name="Sessions" EntityType="Self.Session" />
+          <EntitySet Name="SessionParticipants" EntityType="Self.SessionParticipant" />
+          <EntitySet Name="Ships" EntityType="Self.Ship" />
+          <AssociationSet Name="FK_PeopleAwards_0_0" Association="Self.FK_PeopleAwards_0_0">
+            <End Role="Awards" EntitySet="Awards" />
+            <End Role="PeopleAwards" EntitySet="PeopleAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_2_0" Association="Self.FK_People_2_0">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ranks_0_0" Association="Self.FK_Ranks_0_0">
+            <End Role="Branches" EntitySet="Branches" />
+            <End Role="Ranks" EntitySet="Ranks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_0_0" Association="Self.FK_Session_0_0">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_0_0" Association="Self.FK_People_0_0">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_1_0" Association="Self.FK_People_1_0">
+            <End Role="Ranks" EntitySet="Ranks" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PeopleAwards_1_0" Association="Self.FK_PeopleAwards_1_0">
+            <End Role="People" EntitySet="People" />
+            <End Role="PeopleAwards" EntitySet="PeopleAwards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SessionParticipants_0_0" Association="Self.FK_SessionParticipants_0_0">
+            <End Role="People" EntitySet="People" />
+            <End Role="SessionParticipants" EntitySet="SessionParticipants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SessionParticipants_1_0" Association="Self.FK_SessionParticipants_1_0">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="SessionParticipants" EntitySet="SessionParticipants" />
+          </AssociationSet>
+          <EntitySet Name="Configs" EntityType="TrackingDataModel.Config" />
+        </EntityContainer>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyValue" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrackingDataModelStoreContainer" CdmEntityContainer="TrackingDataEntities">
+          <EntitySetMapping Name="Awards">
+            <EntityTypeMapping TypeName="TrackingDataModel.Award">
+              <MappingFragment StoreEntitySet="Awards">
+                <ScalarProperty Name="WeaponName" ColumnName="WeaponName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AwardName" ColumnName="AwardName" />
+                <ScalarProperty Name="MinCredits" ColumnName="MinCredits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="TrackingDataModel.Branch">
+              <MappingFragment StoreEntitySet="Branches">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="TrackingDataModel.Game">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+                <ScalarProperty Name="RMAWeapon" ColumnName="RMAWeapon" />
+                <ScalarProperty Name="RMNWeapon" ColumnName="RMNWeapon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="TrackingDataModel.Person">
+              <MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RMNId" ColumnName="RMNId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="RankId" ColumnName="RankId" />
+                <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PeopleAwards">
+            <EntityTypeMapping TypeName="TrackingDataModel.PeopleAward">
+              <MappingFragment StoreEntitySet="PeopleAwards">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="AwardId" ColumnName="AwardId" />
+                <ScalarProperty Name="DateAwarded" ColumnName="DateAwarded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ranks">
+            <EntityTypeMapping TypeName="TrackingDataModel.Rank">
+              <MappingFragment StoreEntitySet="Ranks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="RankName" ColumnName="RankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="TrackingDataModel.Session">
+              <MappingFragment StoreEntitySet="Session">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SessionParticipants">
+            <EntityTypeMapping TypeName="TrackingDataModel.SessionParticipant">
+              <MappingFragment StoreEntitySet="SessionParticipants">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Minutes" ColumnName="Minutes" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ships">
+            <EntityTypeMapping TypeName="TrackingDataModel.Ship">
+              <MappingFragment StoreEntitySet="Ships">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configs">
+            <EntityTypeMapping TypeName="TrackingDataModel.Config">
+              <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="PropertyValue" ColumnName="PropertyValue" />
+                <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

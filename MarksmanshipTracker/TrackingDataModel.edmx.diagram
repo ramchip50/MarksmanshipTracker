@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2192e7895014f028d81dc3cc8dce03c" Name="Diagram1">
+        <EntityTypeShape EntityType="TrackingDataModel.Award" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.Branch" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.Game" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.Person" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.PeopleAward" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.Rank" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.Session" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.SessionParticipant" Width="1.5" PointX="7.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrackingDataModel.Ship" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="TrackingDataModel.FK_PeopleAwards_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_People_2_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_Ranks_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_Session_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_People_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_People_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_PeopleAwards_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_SessionParticipants_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="TrackingDataModel.FK_SessionParticipants_1_0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TrackingDataModel.Config" Width="1.5" PointX="9.875" PointY="1.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
