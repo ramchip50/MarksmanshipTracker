@@ -116,7 +116,7 @@
     <Compile Include="MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObservavbleListSource.cs" />
+    <Compile Include="ObservableListSource.cs" />
     <Compile Include="PeopleAward.cs">
       <DependentUpon>TrackingDataModel.tt</DependentUpon>
     </Compile>

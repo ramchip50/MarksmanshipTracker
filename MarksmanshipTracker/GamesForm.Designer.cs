@@ -44,8 +44,8 @@
       // 
       // btnSave
       // 
-      this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnSave.Location = new System.Drawing.Point(33, 303);
+      this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.btnSave.Location = new System.Drawing.Point(33, 307);
       this.btnSave.Name = "btnSave";
       this.btnSave.Size = new System.Drawing.Size(130, 40);
       this.btnSave.TabIndex = 0;
@@ -75,9 +75,9 @@
       dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
       dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
       this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-      this.dataGridView1.Location = new System.Drawing.Point(33, 13);
+      this.dataGridView1.Location = new System.Drawing.Point(3, 1);
       this.dataGridView1.Name = "dataGridView1";
-      this.dataGridView1.Size = new System.Drawing.Size(540, 276);
+      this.dataGridView1.Size = new System.Drawing.Size(612, 300);
       this.dataGridView1.TabIndex = 1;
       this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
       // 
@@ -113,7 +113,7 @@
       // btnClose
       // 
       this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnClose.Location = new System.Drawing.Point(443, 303);
+      this.btnClose.Location = new System.Drawing.Point(443, 307);
       this.btnClose.Name = "btnClose";
       this.btnClose.Size = new System.Drawing.Size(130, 40);
       this.btnClose.TabIndex = 2;

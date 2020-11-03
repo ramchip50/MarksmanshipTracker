@@ -29,7 +29,7 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
       this.btnClose = new System.Windows.Forms.Button();
       this.dgvPeople = new System.Windows.Forms.DataGridView();
       this.rMNIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,8 @@
       // 
       // btnClose
       // 
-      this.btnClose.Location = new System.Drawing.Point(746, 482);
+      this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnClose.Location = new System.Drawing.Point(746, 489);
       this.btnClose.Name = "btnClose";
       this.btnClose.Size = new System.Drawing.Size(130, 40);
       this.btnClose.TabIndex = 0;
@@ -64,6 +65,9 @@
       // 
       // dgvPeople
       // 
+      this.dgvPeople.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.dgvPeople.AutoGenerateColumns = false;
       this.dgvPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
       this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -75,17 +79,17 @@
             this.cboShipDGV,
             this.cboRankDGV});
       this.dgvPeople.DataSource = this.peopleBindingSource;
-      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.dgvPeople.DefaultCellStyle = dataGridViewCellStyle1;
-      this.dgvPeople.Location = new System.Drawing.Point(12, 3);
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dgvPeople.DefaultCellStyle = dataGridViewCellStyle2;
+      this.dgvPeople.Location = new System.Drawing.Point(2, 3);
       this.dgvPeople.Name = "dgvPeople";
-      this.dgvPeople.Size = new System.Drawing.Size(864, 470);
+      this.dgvPeople.Size = new System.Drawing.Size(884, 480);
       this.dgvPeople.TabIndex = 4;
       this.dgvPeople.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvPeople_DataError);
       this.dgvPeople.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvPeople_EditingControlShowing);
@@ -153,7 +157,8 @@
       // 
       // btnSave
       // 
-      this.btnSave.Location = new System.Drawing.Point(11, 482);
+      this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.btnSave.Location = new System.Drawing.Point(11, 488);
       this.btnSave.Name = "btnSave";
       this.btnSave.Size = new System.Drawing.Size(130, 40);
       this.btnSave.TabIndex = 5;
@@ -163,9 +168,10 @@
       // 
       // btnImport
       // 
-      this.btnImport.Location = new System.Drawing.Point(215, 483);
+      this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.btnImport.Location = new System.Drawing.Point(369, 488);
       this.btnImport.Name = "btnImport";
-      this.btnImport.Size = new System.Drawing.Size(124, 38);
+      this.btnImport.Size = new System.Drawing.Size(124, 41);
       this.btnImport.TabIndex = 6;
       this.btnImport.Text = "Import People";
       this.btnImport.UseVisualStyleBackColor = true;

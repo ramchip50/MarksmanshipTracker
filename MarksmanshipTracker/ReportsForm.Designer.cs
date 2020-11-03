@@ -39,7 +39,19 @@
       this.label2 = new System.Windows.Forms.Label();
       this.dpEnd = new System.Windows.Forms.DateTimePicker();
       this.dataGridView1 = new System.Windows.Forms.DataGridView();
+      this.personIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.rMNIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.branchNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.rankNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.shipNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.sessionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.creditsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.GameName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.rMNWeaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.rMAWeaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.peopleSessionLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.btnExportLog = new System.Windows.Forms.Button();
       this.savExport = new System.Windows.Forms.SaveFileDialog();
       this.label3 = new System.Windows.Forms.Label();
@@ -51,24 +63,18 @@
       this.pnlSessionLog = new System.Windows.Forms.Panel();
       this.pnlCumulative = new System.Windows.Forms.Panel();
       this.dgvCumulative = new System.Windows.Forms.DataGridView();
+      this.personIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.rMNIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.branchNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.rankNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.shipNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.rMNWeaponDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.cumCreditsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.peopleCumulativeLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.pnlAwards = new System.Windows.Forms.Panel();
       this.dgvAwards = new System.Windows.Forms.DataGridView();
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.rdoEarnedAwards = new System.Windows.Forms.RadioButton();
-      this.rdoCumLog = new System.Windows.Forms.RadioButton();
-      this.rdoSessionLog = new System.Windows.Forms.RadioButton();
-      this.personIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.rMNIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.branchNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.rankNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.shipNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.sessionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.creditsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.rMNWeaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.rMAWeaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.peopleSessionLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.personIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.lastNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.firstNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,26 +85,20 @@
       this.pistolAwardDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.rifleAwardDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.personAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.peopleCumulativeLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.personIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.rMNIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.branchNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.rankNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.shipNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.rMNWeaponDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.cumCreditsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.rdoEarnedAwards = new System.Windows.Forms.RadioButton();
+      this.rdoCumLog = new System.Windows.Forms.RadioButton();
+      this.rdoSessionLog = new System.Windows.Forms.RadioButton();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.peopleSessionLogBindingSource)).BeginInit();
       this.pnlSessionLog.SuspendLayout();
       this.pnlCumulative.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgvCumulative)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.peopleCumulativeLogBindingSource)).BeginInit();
       this.pnlAwards.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgvAwards)).BeginInit();
-      this.groupBox1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.peopleSessionLogBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.personAwardBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.peopleCumulativeLogBindingSource)).BeginInit();
+      this.groupBox1.SuspendLayout();
       this.SuspendLayout();
       // 
       // btnGo
@@ -154,6 +154,9 @@
       this.dataGridView1.AllowUserToAddRows = false;
       this.dataGridView1.AllowUserToDeleteRows = false;
       this.dataGridView1.AllowUserToOrderColumns = true;
+      this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridView1.AutoGenerateColumns = false;
       this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
       this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -174,256 +177,8 @@
       this.dataGridView1.Location = new System.Drawing.Point(2, 37);
       this.dataGridView1.Name = "dataGridView1";
       this.dataGridView1.ReadOnly = true;
-      this.dataGridView1.Size = new System.Drawing.Size(997, 509);
+      this.dataGridView1.Size = new System.Drawing.Size(997, 515);
       this.dataGridView1.TabIndex = 5;
-      // 
-      // GameName
-      // 
-      this.GameName.DataPropertyName = "GameName";
-      this.GameName.HeaderText = "GameName";
-      this.GameName.Name = "GameName";
-      this.GameName.ReadOnly = true;
-      this.GameName.Width = 88;
-      // 
-      // btnExportLog
-      // 
-      this.btnExportLog.Location = new System.Drawing.Point(1015, 37);
-      this.btnExportLog.Name = "btnExportLog";
-      this.btnExportLog.Size = new System.Drawing.Size(75, 23);
-      this.btnExportLog.TabIndex = 8;
-      this.btnExportLog.Text = "Export";
-      this.btnExportLog.UseVisualStyleBackColor = true;
-      this.btnExportLog.Click += new System.EventHandler(this.btnExportLog_Click);
-      // 
-      // savExport
-      // 
-      this.savExport.DefaultExt = "csv";
-      this.savExport.FileName = "PeriodLog";
-      this.savExport.Filter = "CSV Files|*.csv";
-      // 
-      // label3
-      // 
-      this.label3.AutoSize = true;
-      this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label3.Location = new System.Drawing.Point(837, 12);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(131, 16);
-      this.label3.TabIndex = 9;
-      this.label3.Text = "Activity This Session";
-      // 
-      // label4
-      // 
-      this.label4.AutoSize = true;
-      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label4.Location = new System.Drawing.Point(848, 7);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(131, 16);
-      this.label4.TabIndex = 10;
-      this.label4.Text = "Accumulated Credits";
-      // 
-      // btnExportCum
-      // 
-      this.btnExportCum.Location = new System.Drawing.Point(1015, 37);
-      this.btnExportCum.Name = "btnExportCum";
-      this.btnExportCum.Size = new System.Drawing.Size(75, 23);
-      this.btnExportCum.TabIndex = 11;
-      this.btnExportCum.Text = "Export";
-      this.btnExportCum.UseVisualStyleBackColor = true;
-      this.btnExportCum.Click += new System.EventHandler(this.btnExportCum_Click);
-      // 
-      // label5
-      // 
-      this.label5.AutoSize = true;
-      this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label5.Location = new System.Drawing.Point(868, 7);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(100, 16);
-      this.label5.TabIndex = 12;
-      this.label5.Text = "Earned Awards";
-      // 
-      // btnExportAwards
-      // 
-      this.btnExportAwards.Location = new System.Drawing.Point(1015, 37);
-      this.btnExportAwards.Name = "btnExportAwards";
-      this.btnExportAwards.Size = new System.Drawing.Size(75, 23);
-      this.btnExportAwards.TabIndex = 13;
-      this.btnExportAwards.Text = "Export";
-      this.btnExportAwards.UseVisualStyleBackColor = true;
-      this.btnExportAwards.Click += new System.EventHandler(this.btnExportAwards_Click);
-      // 
-      // btnExit
-      // 
-      this.btnExit.Location = new System.Drawing.Point(788, 10);
-      this.btnExit.Name = "btnExit";
-      this.btnExit.Size = new System.Drawing.Size(181, 44);
-      this.btnExit.TabIndex = 14;
-      this.btnExit.Text = "Close";
-      this.btnExit.UseVisualStyleBackColor = true;
-      this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-      // 
-      // pnlSessionLog
-      // 
-      this.pnlSessionLog.Controls.Add(this.dataGridView1);
-      this.pnlSessionLog.Controls.Add(this.btnExportLog);
-      this.pnlSessionLog.Controls.Add(this.label3);
-      this.pnlSessionLog.Controls.Add(this.label1);
-      this.pnlSessionLog.Controls.Add(this.dpStart);
-      this.pnlSessionLog.Controls.Add(this.btnGo);
-      this.pnlSessionLog.Controls.Add(this.label2);
-      this.pnlSessionLog.Controls.Add(this.dpEnd);
-      this.pnlSessionLog.Location = new System.Drawing.Point(1, 76);
-      this.pnlSessionLog.Name = "pnlSessionLog";
-      this.pnlSessionLog.Size = new System.Drawing.Size(1093, 550);
-      this.pnlSessionLog.TabIndex = 16;
-      // 
-      // pnlCumulative
-      // 
-      this.pnlCumulative.Controls.Add(this.dgvCumulative);
-      this.pnlCumulative.Controls.Add(this.label4);
-      this.pnlCumulative.Controls.Add(this.btnExportCum);
-      this.pnlCumulative.Location = new System.Drawing.Point(1, 76);
-      this.pnlCumulative.Name = "pnlCumulative";
-      this.pnlCumulative.Size = new System.Drawing.Size(1110, 550);
-      this.pnlCumulative.TabIndex = 17;
-      this.pnlCumulative.Visible = false;
-      // 
-      // dgvCumulative
-      // 
-      this.dgvCumulative.AllowUserToAddRows = false;
-      this.dgvCumulative.AllowUserToDeleteRows = false;
-      this.dgvCumulative.AutoGenerateColumns = false;
-      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.dgvCumulative.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-      this.dgvCumulative.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dgvCumulative.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.personIdDataGridViewTextBoxColumn1,
-            this.lastNameDataGridViewTextBoxColumn1,
-            this.firstNameDataGridViewTextBoxColumn1,
-            this.rMNIdDataGridViewTextBoxColumn1,
-            this.branchNameDataGridViewTextBoxColumn1,
-            this.rankNameDataGridViewTextBoxColumn1,
-            this.shipNameDataGridViewTextBoxColumn1,
-            this.rMNWeaponDataGridViewTextBoxColumn1,
-            this.cumCreditsDataGridViewTextBoxColumn});
-      this.dgvCumulative.DataSource = this.peopleCumulativeLogBindingSource;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.dgvCumulative.DefaultCellStyle = dataGridViewCellStyle2;
-      this.dgvCumulative.Location = new System.Drawing.Point(3, 37);
-      this.dgvCumulative.Name = "dgvCumulative";
-      this.dgvCumulative.ReadOnly = true;
-      this.dgvCumulative.Size = new System.Drawing.Size(976, 510);
-      this.dgvCumulative.TabIndex = 12;
-      // 
-      // pnlAwards
-      // 
-      this.pnlAwards.Controls.Add(this.dgvAwards);
-      this.pnlAwards.Controls.Add(this.label5);
-      this.pnlAwards.Controls.Add(this.btnExportAwards);
-      this.pnlAwards.Location = new System.Drawing.Point(1, 76);
-      this.pnlAwards.Name = "pnlAwards";
-      this.pnlAwards.Size = new System.Drawing.Size(1100, 550);
-      this.pnlAwards.TabIndex = 18;
-      this.pnlAwards.Visible = false;
-      // 
-      // dgvAwards
-      // 
-      this.dgvAwards.AllowUserToAddRows = false;
-      this.dgvAwards.AllowUserToDeleteRows = false;
-      this.dgvAwards.AutoGenerateColumns = false;
-      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.dgvAwards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-      this.dgvAwards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dgvAwards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.personIdDataGridViewTextBoxColumn2,
-            this.lastNameDataGridViewTextBoxColumn2,
-            this.firstNameDataGridViewTextBoxColumn2,
-            this.rMNIdDataGridViewTextBoxColumn2,
-            this.branchNameDataGridViewTextBoxColumn2,
-            this.rankNameDataGridViewTextBoxColumn2,
-            this.shipNameDataGridViewTextBoxColumn2,
-            this.pistolAwardDataGridViewTextBoxColumn,
-            this.rifleAwardDataGridViewTextBoxColumn});
-      this.dgvAwards.DataSource = this.personAwardBindingSource;
-      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-      dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-      dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.dgvAwards.DefaultCellStyle = dataGridViewCellStyle4;
-      this.dgvAwards.Location = new System.Drawing.Point(2, 35);
-      this.dgvAwards.Name = "dgvAwards";
-      this.dgvAwards.ReadOnly = true;
-      this.dgvAwards.Size = new System.Drawing.Size(966, 511);
-      this.dgvAwards.TabIndex = 14;
-      // 
-      // groupBox1
-      // 
-      this.groupBox1.Controls.Add(this.rdoEarnedAwards);
-      this.groupBox1.Controls.Add(this.rdoCumLog);
-      this.groupBox1.Controls.Add(this.rdoSessionLog);
-      this.groupBox1.Location = new System.Drawing.Point(179, 9);
-      this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(321, 43);
-      this.groupBox1.TabIndex = 19;
-      this.groupBox1.TabStop = false;
-      this.groupBox1.Text = "Data View";
-      // 
-      // rdoEarnedAwards
-      // 
-      this.rdoEarnedAwards.AutoSize = true;
-      this.rdoEarnedAwards.Location = new System.Drawing.Point(202, 20);
-      this.rdoEarnedAwards.Name = "rdoEarnedAwards";
-      this.rdoEarnedAwards.Size = new System.Drawing.Size(97, 17);
-      this.rdoEarnedAwards.TabIndex = 2;
-      this.rdoEarnedAwards.TabStop = true;
-      this.rdoEarnedAwards.Text = "Earned Awards";
-      this.rdoEarnedAwards.UseVisualStyleBackColor = true;
-      this.rdoEarnedAwards.CheckedChanged += new System.EventHandler(this.rdoEarnedAwards_CheckedChanged);
-      // 
-      // rdoCumLog
-      // 
-      this.rdoCumLog.AutoSize = true;
-      this.rdoCumLog.Location = new System.Drawing.Point(97, 20);
-      this.rdoCumLog.Name = "rdoCumLog";
-      this.rdoCumLog.Size = new System.Drawing.Size(98, 17);
-      this.rdoCumLog.TabIndex = 1;
-      this.rdoCumLog.TabStop = true;
-      this.rdoCumLog.Text = "Cumulative Log";
-      this.rdoCumLog.UseVisualStyleBackColor = true;
-      this.rdoCumLog.CheckedChanged += new System.EventHandler(this.rdoCumLog_CheckedChanged);
-      // 
-      // rdoSessionLog
-      // 
-      this.rdoSessionLog.AutoSize = true;
-      this.rdoSessionLog.Checked = true;
-      this.rdoSessionLog.Location = new System.Drawing.Point(7, 20);
-      this.rdoSessionLog.Name = "rdoSessionLog";
-      this.rdoSessionLog.Size = new System.Drawing.Size(83, 17);
-      this.rdoSessionLog.TabIndex = 0;
-      this.rdoSessionLog.TabStop = true;
-      this.rdoSessionLog.Text = "Session Log";
-      this.rdoSessionLog.UseVisualStyleBackColor = true;
-      this.rdoSessionLog.CheckedChanged += new System.EventHandler(this.rdoSessionLog_CheckedChanged);
       // 
       // personIdDataGridViewTextBoxColumn
       // 
@@ -499,6 +254,14 @@
       this.creditsDataGridViewTextBoxColumn.ReadOnly = true;
       this.creditsDataGridViewTextBoxColumn.Width = 64;
       // 
+      // GameName
+      // 
+      this.GameName.DataPropertyName = "GameName";
+      this.GameName.HeaderText = "GameName";
+      this.GameName.Name = "GameName";
+      this.GameName.ReadOnly = true;
+      this.GameName.Width = 88;
+      // 
       // rMNWeaponDataGridViewTextBoxColumn
       // 
       this.rMNWeaponDataGridViewTextBoxColumn.DataPropertyName = "RMNWeapon";
@@ -518,6 +281,286 @@
       // peopleSessionLogBindingSource
       // 
       this.peopleSessionLogBindingSource.DataSource = typeof(MarksmanshipTracker.PeopleSessionLog);
+      // 
+      // btnExportLog
+      // 
+      this.btnExportLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnExportLog.Location = new System.Drawing.Point(1015, 37);
+      this.btnExportLog.Name = "btnExportLog";
+      this.btnExportLog.Size = new System.Drawing.Size(75, 23);
+      this.btnExportLog.TabIndex = 8;
+      this.btnExportLog.Text = "Export";
+      this.btnExportLog.UseVisualStyleBackColor = true;
+      this.btnExportLog.Click += new System.EventHandler(this.btnExportLog_Click);
+      // 
+      // savExport
+      // 
+      this.savExport.DefaultExt = "csv";
+      this.savExport.FileName = "PeriodLog";
+      this.savExport.Filter = "CSV Files|*.csv";
+      // 
+      // label3
+      // 
+      this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.label3.AutoSize = true;
+      this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label3.Location = new System.Drawing.Point(837, 12);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(131, 16);
+      this.label3.TabIndex = 9;
+      this.label3.Text = "Activity This Session";
+      // 
+      // label4
+      // 
+      this.label4.AutoSize = true;
+      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label4.Location = new System.Drawing.Point(848, 7);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(131, 16);
+      this.label4.TabIndex = 10;
+      this.label4.Text = "Accumulated Credits";
+      // 
+      // btnExportCum
+      // 
+      this.btnExportCum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnExportCum.Location = new System.Drawing.Point(1015, 37);
+      this.btnExportCum.Name = "btnExportCum";
+      this.btnExportCum.Size = new System.Drawing.Size(75, 23);
+      this.btnExportCum.TabIndex = 11;
+      this.btnExportCum.Text = "Export";
+      this.btnExportCum.UseVisualStyleBackColor = true;
+      this.btnExportCum.Click += new System.EventHandler(this.btnExportCum_Click);
+      // 
+      // label5
+      // 
+      this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.label5.AutoSize = true;
+      this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label5.Location = new System.Drawing.Point(868, 7);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(100, 16);
+      this.label5.TabIndex = 12;
+      this.label5.Text = "Earned Awards";
+      // 
+      // btnExportAwards
+      // 
+      this.btnExportAwards.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnExportAwards.Location = new System.Drawing.Point(1015, 37);
+      this.btnExportAwards.Name = "btnExportAwards";
+      this.btnExportAwards.Size = new System.Drawing.Size(75, 23);
+      this.btnExportAwards.TabIndex = 13;
+      this.btnExportAwards.Text = "Export";
+      this.btnExportAwards.UseVisualStyleBackColor = true;
+      this.btnExportAwards.Click += new System.EventHandler(this.btnExportAwards_Click);
+      // 
+      // btnExit
+      // 
+      this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnExit.Location = new System.Drawing.Point(788, 10);
+      this.btnExit.Name = "btnExit";
+      this.btnExit.Size = new System.Drawing.Size(181, 44);
+      this.btnExit.TabIndex = 14;
+      this.btnExit.Text = "Close";
+      this.btnExit.UseVisualStyleBackColor = true;
+      this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+      // 
+      // pnlSessionLog
+      // 
+      this.pnlSessionLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlSessionLog.Controls.Add(this.dataGridView1);
+      this.pnlSessionLog.Controls.Add(this.btnExportLog);
+      this.pnlSessionLog.Controls.Add(this.label3);
+      this.pnlSessionLog.Controls.Add(this.label1);
+      this.pnlSessionLog.Controls.Add(this.dpStart);
+      this.pnlSessionLog.Controls.Add(this.btnGo);
+      this.pnlSessionLog.Controls.Add(this.label2);
+      this.pnlSessionLog.Controls.Add(this.dpEnd);
+      this.pnlSessionLog.Location = new System.Drawing.Point(1, 76);
+      this.pnlSessionLog.Name = "pnlSessionLog";
+      this.pnlSessionLog.Size = new System.Drawing.Size(1093, 556);
+      this.pnlSessionLog.TabIndex = 16;
+      // 
+      // pnlCumulative
+      // 
+      this.pnlCumulative.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlCumulative.Controls.Add(this.dgvCumulative);
+      this.pnlCumulative.Controls.Add(this.btnExportCum);
+      this.pnlCumulative.Controls.Add(this.label4);
+      this.pnlCumulative.Location = new System.Drawing.Point(1, 76);
+      this.pnlCumulative.Name = "pnlCumulative";
+      this.pnlCumulative.Size = new System.Drawing.Size(1110, 559);
+      this.pnlCumulative.TabIndex = 17;
+      this.pnlCumulative.Visible = false;
+      // 
+      // dgvCumulative
+      // 
+      this.dgvCumulative.AllowUserToAddRows = false;
+      this.dgvCumulative.AllowUserToDeleteRows = false;
+      this.dgvCumulative.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.dgvCumulative.AutoGenerateColumns = false;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dgvCumulative.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+      this.dgvCumulative.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgvCumulative.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.personIdDataGridViewTextBoxColumn1,
+            this.lastNameDataGridViewTextBoxColumn1,
+            this.firstNameDataGridViewTextBoxColumn1,
+            this.rMNIdDataGridViewTextBoxColumn1,
+            this.branchNameDataGridViewTextBoxColumn1,
+            this.rankNameDataGridViewTextBoxColumn1,
+            this.shipNameDataGridViewTextBoxColumn1,
+            this.rMNWeaponDataGridViewTextBoxColumn1,
+            this.cumCreditsDataGridViewTextBoxColumn});
+      this.dgvCumulative.DataSource = this.peopleCumulativeLogBindingSource;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dgvCumulative.DefaultCellStyle = dataGridViewCellStyle2;
+      this.dgvCumulative.Location = new System.Drawing.Point(3, 37);
+      this.dgvCumulative.Name = "dgvCumulative";
+      this.dgvCumulative.ReadOnly = true;
+      this.dgvCumulative.Size = new System.Drawing.Size(976, 519);
+      this.dgvCumulative.TabIndex = 12;
+      // 
+      // personIdDataGridViewTextBoxColumn1
+      // 
+      this.personIdDataGridViewTextBoxColumn1.DataPropertyName = "PersonId";
+      this.personIdDataGridViewTextBoxColumn1.HeaderText = "PersonId";
+      this.personIdDataGridViewTextBoxColumn1.Name = "personIdDataGridViewTextBoxColumn1";
+      this.personIdDataGridViewTextBoxColumn1.ReadOnly = true;
+      this.personIdDataGridViewTextBoxColumn1.Visible = false;
+      // 
+      // lastNameDataGridViewTextBoxColumn1
+      // 
+      this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
+      this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
+      this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+      this.lastNameDataGridViewTextBoxColumn1.ReadOnly = true;
+      // 
+      // firstNameDataGridViewTextBoxColumn1
+      // 
+      this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
+      this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
+      this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+      this.firstNameDataGridViewTextBoxColumn1.ReadOnly = true;
+      // 
+      // rMNIdDataGridViewTextBoxColumn1
+      // 
+      this.rMNIdDataGridViewTextBoxColumn1.DataPropertyName = "RMNId";
+      this.rMNIdDataGridViewTextBoxColumn1.HeaderText = "RMNId";
+      this.rMNIdDataGridViewTextBoxColumn1.Name = "rMNIdDataGridViewTextBoxColumn1";
+      this.rMNIdDataGridViewTextBoxColumn1.ReadOnly = true;
+      // 
+      // branchNameDataGridViewTextBoxColumn1
+      // 
+      this.branchNameDataGridViewTextBoxColumn1.DataPropertyName = "BranchName";
+      this.branchNameDataGridViewTextBoxColumn1.HeaderText = "BranchName";
+      this.branchNameDataGridViewTextBoxColumn1.Name = "branchNameDataGridViewTextBoxColumn1";
+      this.branchNameDataGridViewTextBoxColumn1.ReadOnly = true;
+      // 
+      // rankNameDataGridViewTextBoxColumn1
+      // 
+      this.rankNameDataGridViewTextBoxColumn1.DataPropertyName = "RankName";
+      this.rankNameDataGridViewTextBoxColumn1.HeaderText = "RankName";
+      this.rankNameDataGridViewTextBoxColumn1.Name = "rankNameDataGridViewTextBoxColumn1";
+      this.rankNameDataGridViewTextBoxColumn1.ReadOnly = true;
+      // 
+      // shipNameDataGridViewTextBoxColumn1
+      // 
+      this.shipNameDataGridViewTextBoxColumn1.DataPropertyName = "ShipName";
+      this.shipNameDataGridViewTextBoxColumn1.HeaderText = "ShipName";
+      this.shipNameDataGridViewTextBoxColumn1.Name = "shipNameDataGridViewTextBoxColumn1";
+      this.shipNameDataGridViewTextBoxColumn1.ReadOnly = true;
+      // 
+      // rMNWeaponDataGridViewTextBoxColumn1
+      // 
+      this.rMNWeaponDataGridViewTextBoxColumn1.DataPropertyName = "RMNWeapon";
+      this.rMNWeaponDataGridViewTextBoxColumn1.HeaderText = "RMNWeapon";
+      this.rMNWeaponDataGridViewTextBoxColumn1.Name = "rMNWeaponDataGridViewTextBoxColumn1";
+      this.rMNWeaponDataGridViewTextBoxColumn1.ReadOnly = true;
+      // 
+      // cumCreditsDataGridViewTextBoxColumn
+      // 
+      this.cumCreditsDataGridViewTextBoxColumn.DataPropertyName = "CumCredits";
+      this.cumCreditsDataGridViewTextBoxColumn.HeaderText = "CumCredits";
+      this.cumCreditsDataGridViewTextBoxColumn.Name = "cumCreditsDataGridViewTextBoxColumn";
+      this.cumCreditsDataGridViewTextBoxColumn.ReadOnly = true;
+      // 
+      // peopleCumulativeLogBindingSource
+      // 
+      this.peopleCumulativeLogBindingSource.DataSource = typeof(MarksmanshipTracker.PeopleCumulativeLog);
+      // 
+      // pnlAwards
+      // 
+      this.pnlAwards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlAwards.Controls.Add(this.dgvAwards);
+      this.pnlAwards.Controls.Add(this.label5);
+      this.pnlAwards.Controls.Add(this.btnExportAwards);
+      this.pnlAwards.Location = new System.Drawing.Point(1, 76);
+      this.pnlAwards.Name = "pnlAwards";
+      this.pnlAwards.Size = new System.Drawing.Size(1100, 559);
+      this.pnlAwards.TabIndex = 18;
+      this.pnlAwards.Visible = false;
+      // 
+      // dgvAwards
+      // 
+      this.dgvAwards.AllowUserToAddRows = false;
+      this.dgvAwards.AllowUserToDeleteRows = false;
+      this.dgvAwards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.dgvAwards.AutoGenerateColumns = false;
+      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dgvAwards.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+      this.dgvAwards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dgvAwards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.personIdDataGridViewTextBoxColumn2,
+            this.lastNameDataGridViewTextBoxColumn2,
+            this.firstNameDataGridViewTextBoxColumn2,
+            this.rMNIdDataGridViewTextBoxColumn2,
+            this.branchNameDataGridViewTextBoxColumn2,
+            this.rankNameDataGridViewTextBoxColumn2,
+            this.shipNameDataGridViewTextBoxColumn2,
+            this.pistolAwardDataGridViewTextBoxColumn,
+            this.rifleAwardDataGridViewTextBoxColumn});
+      this.dgvAwards.DataSource = this.personAwardBindingSource;
+      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dgvAwards.DefaultCellStyle = dataGridViewCellStyle4;
+      this.dgvAwards.Location = new System.Drawing.Point(2, 35);
+      this.dgvAwards.Name = "dgvAwards";
+      this.dgvAwards.ReadOnly = true;
+      this.dgvAwards.Size = new System.Drawing.Size(966, 520);
+      this.dgvAwards.TabIndex = 14;
       // 
       // personIdDataGridViewTextBoxColumn2
       // 
@@ -587,101 +630,82 @@
       // 
       this.personAwardBindingSource.DataSource = typeof(MarksmanshipTracker.PersonAward);
       // 
-      // peopleCumulativeLogBindingSource
+      // groupBox1
       // 
-      this.peopleCumulativeLogBindingSource.DataSource = typeof(MarksmanshipTracker.PeopleCumulativeLog);
+      this.groupBox1.Controls.Add(this.rdoEarnedAwards);
+      this.groupBox1.Controls.Add(this.rdoCumLog);
+      this.groupBox1.Controls.Add(this.rdoSessionLog);
+      this.groupBox1.Location = new System.Drawing.Point(179, 9);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new System.Drawing.Size(321, 43);
+      this.groupBox1.TabIndex = 19;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "Data View";
       // 
-      // personIdDataGridViewTextBoxColumn1
+      // rdoEarnedAwards
       // 
-      this.personIdDataGridViewTextBoxColumn1.DataPropertyName = "PersonId";
-      this.personIdDataGridViewTextBoxColumn1.HeaderText = "PersonId";
-      this.personIdDataGridViewTextBoxColumn1.Name = "personIdDataGridViewTextBoxColumn1";
-      this.personIdDataGridViewTextBoxColumn1.ReadOnly = true;
-      this.personIdDataGridViewTextBoxColumn1.Visible = false;
+      this.rdoEarnedAwards.AutoSize = true;
+      this.rdoEarnedAwards.Location = new System.Drawing.Point(202, 20);
+      this.rdoEarnedAwards.Name = "rdoEarnedAwards";
+      this.rdoEarnedAwards.Size = new System.Drawing.Size(97, 17);
+      this.rdoEarnedAwards.TabIndex = 2;
+      this.rdoEarnedAwards.TabStop = true;
+      this.rdoEarnedAwards.Text = "Earned Awards";
+      this.rdoEarnedAwards.UseVisualStyleBackColor = true;
+      this.rdoEarnedAwards.CheckedChanged += new System.EventHandler(this.rdoEarnedAwards_CheckedChanged);
       // 
-      // lastNameDataGridViewTextBoxColumn1
+      // rdoCumLog
       // 
-      this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
-      this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
-      this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
-      this.lastNameDataGridViewTextBoxColumn1.ReadOnly = true;
+      this.rdoCumLog.AutoSize = true;
+      this.rdoCumLog.Location = new System.Drawing.Point(97, 20);
+      this.rdoCumLog.Name = "rdoCumLog";
+      this.rdoCumLog.Size = new System.Drawing.Size(98, 17);
+      this.rdoCumLog.TabIndex = 1;
+      this.rdoCumLog.TabStop = true;
+      this.rdoCumLog.Text = "Cumulative Log";
+      this.rdoCumLog.UseVisualStyleBackColor = true;
+      this.rdoCumLog.CheckedChanged += new System.EventHandler(this.rdoCumLog_CheckedChanged);
       // 
-      // firstNameDataGridViewTextBoxColumn1
+      // rdoSessionLog
       // 
-      this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
-      this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
-      this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
-      this.firstNameDataGridViewTextBoxColumn1.ReadOnly = true;
-      // 
-      // rMNIdDataGridViewTextBoxColumn1
-      // 
-      this.rMNIdDataGridViewTextBoxColumn1.DataPropertyName = "RMNId";
-      this.rMNIdDataGridViewTextBoxColumn1.HeaderText = "RMNId";
-      this.rMNIdDataGridViewTextBoxColumn1.Name = "rMNIdDataGridViewTextBoxColumn1";
-      this.rMNIdDataGridViewTextBoxColumn1.ReadOnly = true;
-      // 
-      // branchNameDataGridViewTextBoxColumn1
-      // 
-      this.branchNameDataGridViewTextBoxColumn1.DataPropertyName = "BranchName";
-      this.branchNameDataGridViewTextBoxColumn1.HeaderText = "BranchName";
-      this.branchNameDataGridViewTextBoxColumn1.Name = "branchNameDataGridViewTextBoxColumn1";
-      this.branchNameDataGridViewTextBoxColumn1.ReadOnly = true;
-      // 
-      // rankNameDataGridViewTextBoxColumn1
-      // 
-      this.rankNameDataGridViewTextBoxColumn1.DataPropertyName = "RankName";
-      this.rankNameDataGridViewTextBoxColumn1.HeaderText = "RankName";
-      this.rankNameDataGridViewTextBoxColumn1.Name = "rankNameDataGridViewTextBoxColumn1";
-      this.rankNameDataGridViewTextBoxColumn1.ReadOnly = true;
-      // 
-      // shipNameDataGridViewTextBoxColumn1
-      // 
-      this.shipNameDataGridViewTextBoxColumn1.DataPropertyName = "ShipName";
-      this.shipNameDataGridViewTextBoxColumn1.HeaderText = "ShipName";
-      this.shipNameDataGridViewTextBoxColumn1.Name = "shipNameDataGridViewTextBoxColumn1";
-      this.shipNameDataGridViewTextBoxColumn1.ReadOnly = true;
-      // 
-      // rMNWeaponDataGridViewTextBoxColumn1
-      // 
-      this.rMNWeaponDataGridViewTextBoxColumn1.DataPropertyName = "RMNWeapon";
-      this.rMNWeaponDataGridViewTextBoxColumn1.HeaderText = "RMNWeapon";
-      this.rMNWeaponDataGridViewTextBoxColumn1.Name = "rMNWeaponDataGridViewTextBoxColumn1";
-      this.rMNWeaponDataGridViewTextBoxColumn1.ReadOnly = true;
-      // 
-      // cumCreditsDataGridViewTextBoxColumn
-      // 
-      this.cumCreditsDataGridViewTextBoxColumn.DataPropertyName = "CumCredits";
-      this.cumCreditsDataGridViewTextBoxColumn.HeaderText = "CumCredits";
-      this.cumCreditsDataGridViewTextBoxColumn.Name = "cumCreditsDataGridViewTextBoxColumn";
-      this.cumCreditsDataGridViewTextBoxColumn.ReadOnly = true;
+      this.rdoSessionLog.AutoSize = true;
+      this.rdoSessionLog.Checked = true;
+      this.rdoSessionLog.Location = new System.Drawing.Point(7, 20);
+      this.rdoSessionLog.Name = "rdoSessionLog";
+      this.rdoSessionLog.Size = new System.Drawing.Size(83, 17);
+      this.rdoSessionLog.TabIndex = 0;
+      this.rdoSessionLog.TabStop = true;
+      this.rdoSessionLog.Text = "Session Log";
+      this.rdoSessionLog.UseVisualStyleBackColor = true;
+      this.rdoSessionLog.CheckedChanged += new System.EventHandler(this.rdoSessionLog_CheckedChanged);
       // 
       // ReportsForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1106, 634);
-      this.Controls.Add(this.pnlCumulative);
-      this.Controls.Add(this.pnlSessionLog);
       this.Controls.Add(this.pnlAwards);
       this.Controls.Add(this.groupBox1);
       this.Controls.Add(this.btnExit);
+      this.Controls.Add(this.pnlCumulative);
+      this.Controls.Add(this.pnlSessionLog);
       this.Name = "ReportsForm";
       this.Text = "ReportsForm";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportsForm_FormClosing);
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.peopleSessionLogBindingSource)).EndInit();
       this.pnlSessionLog.ResumeLayout(false);
       this.pnlSessionLog.PerformLayout();
       this.pnlCumulative.ResumeLayout(false);
       this.pnlCumulative.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgvCumulative)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.peopleCumulativeLogBindingSource)).EndInit();
       this.pnlAwards.ResumeLayout(false);
       this.pnlAwards.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgvAwards)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.personAwardBindingSource)).EndInit();
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.peopleSessionLogBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.personAwardBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.peopleCumulativeLogBindingSource)).EndInit();
       this.ResumeLayout(false);
 
     }

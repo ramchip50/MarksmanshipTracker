@@ -32,18 +32,18 @@
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       this.btnClose = new System.Windows.Forms.Button();
       this.btnSave = new System.Windows.Forms.Button();
-      this.shipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.dgShips = new System.Windows.Forms.DataGridView();
       this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.shipNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      ((System.ComponentModel.ISupportInitialize)(this.shipsBindingSource)).BeginInit();
+      this.shipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.dgShips)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.shipsBindingSource)).BeginInit();
       this.SuspendLayout();
       // 
       // btnClose
       // 
-      this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-      this.btnClose.Location = new System.Drawing.Point(267, 254);
+      this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnClose.Location = new System.Drawing.Point(244, 200);
       this.btnClose.Name = "btnClose";
       this.btnClose.Size = new System.Drawing.Size(130, 40);
       this.btnClose.TabIndex = 2;
@@ -53,18 +53,14 @@
       // 
       // btnSave
       // 
-      this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnSave.Location = new System.Drawing.Point(12, 253);
+      this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.btnSave.Location = new System.Drawing.Point(12, 200);
       this.btnSave.Name = "btnSave";
       this.btnSave.Size = new System.Drawing.Size(130, 40);
       this.btnSave.TabIndex = 3;
       this.btnSave.Text = "Save";
       this.btnSave.UseVisualStyleBackColor = true;
       this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-      // 
-      // shipsBindingSource
-      // 
-      this.shipsBindingSource.DataSource = typeof(MarksmanshipTracker.Ship);
       // 
       // dgShips
       // 
@@ -86,9 +82,9 @@
       dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
       dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
       this.dgShips.DefaultCellStyle = dataGridViewCellStyle1;
-      this.dgShips.Location = new System.Drawing.Point(12, 12);
+      this.dgShips.Location = new System.Drawing.Point(-1, 0);
       this.dgShips.Name = "dgShips";
-      this.dgShips.Size = new System.Drawing.Size(385, 235);
+      this.dgShips.Size = new System.Drawing.Size(386, 194);
       this.dgShips.TabIndex = 4;
       // 
       // idDataGridViewTextBoxColumn
@@ -105,19 +101,23 @@
       this.shipNameDataGridViewTextBoxColumn.HeaderText = "ShipName";
       this.shipNameDataGridViewTextBoxColumn.Name = "shipNameDataGridViewTextBoxColumn";
       // 
+      // shipsBindingSource
+      // 
+      this.shipsBindingSource.DataSource = typeof(MarksmanshipTracker.Ship);
+      // 
       // ShipsForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(425, 306);
+      this.ClientSize = new System.Drawing.Size(386, 246);
       this.Controls.Add(this.dgShips);
       this.Controls.Add(this.btnSave);
       this.Controls.Add(this.btnClose);
       this.Name = "ShipsForm";
       this.Text = "ShipsForm";
       this.Load += new System.EventHandler(this.ShipsForm_Load);
-      ((System.ComponentModel.ISupportInitialize)(this.shipsBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgShips)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.shipsBindingSource)).EndInit();
       this.ResumeLayout(false);
 
     }
