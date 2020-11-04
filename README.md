@@ -7,7 +7,7 @@ There's no fancy installation thing, just unzip to a folder on your hard drive a
 
 First step: Add your ship. Go to the Ships page and add your ship to the list.
 
-Second step:  Add your crew. Go to the People page to add manually or import from a CSV file. (See importexample.csv in this zip for the format needed.)
+Second step:  Add your crew. Go to the People page to add manually or import from a CSV file. (See PeopleImport.csv the format needed.)
 
 Third Step: Add the games. I've included the games we play on the HMS Demon and HMS Vixen.
 
