@@ -1,4 +1,6 @@
 %%%%%%%%%%%%%%%%%  The Marksmanship Tracker %%%%%%%%%%%%%%%%%%%%%
+
+
 Version Short Victorious War
 
 I got tired of trying to track game sessions for Marksmanship awards using Excel and was going bug crazy from the panademic so I decided to create this app.
