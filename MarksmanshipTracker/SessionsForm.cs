@@ -14,7 +14,9 @@ namespace MarksmanshipTracker
 
     List<TrmnPerson> players = new List<TrmnPerson>();
     List<TrmnPlayer> sessionPlayers = new List<TrmnPlayer>();
+    List<TrmnPlayer> savedPlayers = new List<TrmnPlayer>();
     private Int64 _sessionId = -1;
+    private bool _editMode = false;
     public SessionsForm()
     {
       InitializeComponent();
@@ -37,6 +39,7 @@ namespace MarksmanshipTracker
       gameBindingSource.DataSource = MainForm.trmnContext.Games.Local.ToBindingList();
       sessionPlayers.Clear();
       btnAddPlayer.Enabled = false;
+      _editMode = false;
     }
 
     private void btnSave_Click(object sender, EventArgs e)
@@ -86,21 +89,12 @@ namespace MarksmanshipTracker
         Name = cboTrmnPlayer.Text,
         SessionId = _sessionId,
         PersonId = (Int64)cboTrmnPlayer.SelectedValue,
-        Minutes = Convert.ToDecimal(txtMinutes.Text)
+        Minutes = Convert.ToInt64(txtMinutes.Text)
       });
-
-      //    string[] playerItem = { $"{cboTrmnPlayer.Text}", $"{txtMinutes.Text}" };
-
-
-
-      //      ListViewItem itm = new ListViewItem(cboTrmnPlayer.Text);
-      //      itm.SubItems.Add(txtMinutes.Text);
-      //      lvPlayers.Items.Add(itm);
-      //      btnAddPlayer.Enabled = false;
-
+      
       trmnPlayerBindingSource.DataSource = sessionPlayers;
       trmnPlayerBindingSource.ResetBindings(false);
-//      dgvPlayers.Refresh();
+
     }
 
     private void btnSaveNew_Click(object sender, EventArgs e)
@@ -116,6 +110,12 @@ namespace MarksmanshipTracker
 
     private void SaveSession()
     {
+      //If Edit mode, clear participants for session
+      if (_editMode)
+      {
+        MainForm.trmnContext.SessionParticipants.RemoveRange(MainForm.trmnContext.SessionParticipants.Where(sp => sp.SessionId == _sessionId));
+        MainForm.trmnContext.SaveChanges();
+      }
       int totalPlayers = sessionPlayers.Count();
       if (totalPlayers < 2)
       {
@@ -136,6 +136,7 @@ namespace MarksmanshipTracker
         MainForm.trmnContext.SessionParticipants.Add(sessionPlayer);
       }
       MainForm.trmnContext.SaveChanges();
+      _editMode = false;
     }
 
     private void cboTrmnPlayer_SelectedValueChanged(object sender, EventArgs e)
@@ -265,6 +266,45 @@ namespace MarksmanshipTracker
       }
       btnImportLog.Enabled = true;
     }
+
+    private void btnEdit_Click(object sender, EventArgs e)
+    {
+      //Validate selection
+      if(string.IsNullOrWhiteSpace(dpSessionDate.Text) || string.IsNullOrWhiteSpace(cboGame.Text))
+      {
+        MessageBox.Show("No date or game selected.  Select a data and game to edit a session.");
+        return;
+      }
+      //Get Session. Messasge if not found
+      Session savedSession = MainForm.trmnContext.Sessions.FirstOrDefault(s => s.SessionDate.Value.CompareTo(dpSessionDate.Value.Date) == 0 &&
+          s.GameId == (Int64)cboGame.SelectedValue);
+      if(savedSession == null)
+      {
+        MessageBox.Show("No session saved for that date and game");
+        return;
+      }
+      _sessionId = savedSession.Id;
+      //Get SessionParticipants
+      List<SessionParticipant> savedParticpants = MainForm.trmnContext.SessionParticipants.Include("Person").Where(p => p.SessionId == _sessionId).ToList();
+      //Load SavedPlayers
+      sessionPlayers.Clear();
+      foreach (SessionParticipant sp in savedParticpants)
+      {
+        sessionPlayers.Add(new MarksmanshipTracker.TrmnPlayer
+        {
+          Name = $"{sp.Person.FirstName} {sp.Person.LastName}",
+          SessionId = sp.SessionId,
+          PersonId = sp.PersonId,
+          Minutes = sp.Minutes.Value
+        });
+      }
+      //Show SessionParticipants
+      trmnPlayerBindingSource.DataSource = sessionPlayers;
+      trmnPlayerBindingSource.ResetBindings(false);
+
+      //SetEditMode
+      _editMode = true;
+    }
   }
 
 
@@ -280,6 +320,6 @@ namespace MarksmanshipTracker
     public string Name { get; set; }
     public Int64 PersonId { get; set; }
     public Int64 SessionId { get; set; }
-    public Decimal Minutes { get; set; }
+    public Int64 Minutes { get; set; }
   }
 }

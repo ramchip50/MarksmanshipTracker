@@ -29,7 +29,7 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       this.btnSave = new System.Windows.Forms.Button();
       this.btnClose = new System.Windows.Forms.Button();
       this.dpSessionDate = new System.Windows.Forms.DateTimePicker();
@@ -54,6 +54,7 @@
       this.trmnPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.btnImportLog = new System.Windows.Forms.Button();
       this.fsImportFile = new System.Windows.Forms.OpenFileDialog();
+      this.btnEdit = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTRMNPerson)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgvPlayers)).BeginInit();
@@ -222,14 +223,14 @@
             this.SessionId,
             this.Minutes});
       this.dgvPlayers.DataSource = this.trmnPlayerBindingSource;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.dgvPlayers.DefaultCellStyle = dataGridViewCellStyle2;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dgvPlayers.DefaultCellStyle = dataGridViewCellStyle1;
       this.dgvPlayers.Location = new System.Drawing.Point(12, 130);
       this.dgvPlayers.Name = "dgvPlayers";
       this.dgvPlayers.Size = new System.Drawing.Size(479, 219);
@@ -279,11 +280,23 @@
       // 
       this.fsImportFile.Filter = "CSV files|*.csv";
       // 
+      // btnEdit
+      // 
+      this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnEdit.Location = new System.Drawing.Point(501, 21);
+      this.btnEdit.Name = "btnEdit";
+      this.btnEdit.Size = new System.Drawing.Size(110, 32);
+      this.btnEdit.TabIndex = 19;
+      this.btnEdit.Text = "Edit Session";
+      this.btnEdit.UseVisualStyleBackColor = true;
+      this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+      // 
       // SessionsForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(649, 402);
+      this.Controls.Add(this.btnEdit);
       this.Controls.Add(this.btnImportLog);
       this.Controls.Add(this.dgvPlayers);
       this.Controls.Add(this.btnClear);
@@ -338,5 +351,6 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn Minutes;
     private System.Windows.Forms.Button btnImportLog;
     private System.Windows.Forms.OpenFileDialog fsImportFile;
+    private System.Windows.Forms.Button btnEdit;
   }
 }
