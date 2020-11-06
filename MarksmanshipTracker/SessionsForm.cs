@@ -52,7 +52,7 @@ namespace MarksmanshipTracker
     {
 
       //Remove session if created
-      if (_sessionId != -1)
+      if (_sessionId != -1 && !_editMode)
       {
         Session thisSession = MainForm.trmnContext.Sessions.Where(s => s.Id == _sessionId).First();
         MainForm.trmnContext.Sessions.Remove(thisSession);

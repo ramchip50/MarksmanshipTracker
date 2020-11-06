@@ -104,9 +104,10 @@ namespace MarksmanshipTracker
 
     }
 
-    private void LoadAwards() {
+    private void LoadAwards(bool showOnlyDaysBack) {
 
-      if(cumulativeLog == null) LoadCumLog(false);
+      if (cumulativeLog == null) LoadCumLog(false);
+
       List<Award> ribbons = MainForm.trmnContext.Awards.ToList();
       List<PersonAward> chests = new List<PersonAward>();
       foreach(PeopleCumulativeLog pcl in cumulativeLog)
@@ -125,7 +126,7 @@ namespace MarksmanshipTracker
             {
               PersonId= pcl.PersonId,
               AwardId = weapon.Id,
-              DateAwarded= DateTime.Now
+              DateAwarded= DateTime.Now.Date
             };
             MainForm.trmnContext.PeopleAwards.Add(newAward);
             MainForm.trmnContext.SaveChanges();
@@ -155,10 +156,22 @@ namespace MarksmanshipTracker
           RankName = pcl.RankName,
           ShipName = pcl.ShipName,
           PistolAward = pistol != null ? pistol.Award.AwardName : null,
-          RifleAward = rifle != null ? rifle.Award.AwardName : null
+          DatePistolAwarded = pistol!= null ? pistol.DateAwarded : null,
+          RifleAward = rifle != null ? rifle.Award.AwardName : null,
+          DateRifleAwarded = rifle != null ? rifle.DateAwarded : null,
         });
       }
-      personAwardBindingSource.DataSource = ribbonRacks;
+      if (showOnlyDaysBack)
+      {
+        DateTime startDate = DateTime.Now.AddDays((double)numDays.Value * -1).Date;
+        personAwardBindingSource.DataSource = 
+         ribbonRacks.Where(rr => (rr.DatePistolAwarded.HasValue && rr.DatePistolAwarded.Value.CompareTo(startDate) >= 0)
+        || (rr.DateRifleAwarded.HasValue && rr.DateRifleAwarded.Value.CompareTo(startDate) >= 0 )).ToList();
+      }
+      else
+      {
+        personAwardBindingSource.DataSource = ribbonRacks;
+      }
       }
 
     private void btnExportLog_Click(object sender, EventArgs e)
@@ -230,7 +243,7 @@ namespace MarksmanshipTracker
         pnlSessionLog.Visible = false;
         pnlCumulative.Visible = false;
         pnlAwards.Visible = true;
-        LoadAwards();
+        LoadAwards(false);
         this.Refresh();
       }
     }
@@ -238,6 +251,11 @@ namespace MarksmanshipTracker
     private void ReportsForm_FormClosing(object sender, FormClosingEventArgs e)
     {
       _tdbConn.Close();
+    }
+
+    private void chkLast_CheckedChanged(object sender, EventArgs e)
+    {
+        LoadAwards(((CheckBox)sender).Checked);
     }
   }
   
