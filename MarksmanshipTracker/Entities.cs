@@ -112,10 +112,12 @@ namespace MarksmanshipTracker
     public string ShipName { get; set; }
     [FieldOrder(8)]
     public string PistolAward { get; set; }
+    [FieldConverter(ConverterKind.Date, "yyyy-MM-dd")]
     [FieldOrder(9)]
     public DateTime? DatePistolAwarded { get; set; }
     [FieldOrder(10)]
     public string RifleAward { get; set; }
+    [FieldConverter(ConverterKind.Date, "yyyy-MM-dd")]
     [FieldOrder(11)]
     public DateTime? DateRifleAwarded { get; set; }
 

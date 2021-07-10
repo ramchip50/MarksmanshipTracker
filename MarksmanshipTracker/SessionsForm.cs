@@ -31,7 +31,7 @@ namespace MarksmanshipTracker
         players.Add(new MarksmanshipTracker.TrmnPerson
         {
           Id = p.Id,
-          Name = $"{p.LastName}, {p.FirstName}"
+          Name = $"{p.RMNId}: {p.LastName}, {p.FirstName}"
         });
       }
       bindingSourceTRMNPerson.DataSource = players;
@@ -72,29 +72,48 @@ namespace MarksmanshipTracker
 
       if (_sessionId == -1)
       {
-        //Add session, get ID
-        Session thisSession = new Session
+        Session thisSession = MainForm.trmnContext.Sessions.FirstOrDefault(s => s.SessionDate.Value.CompareTo(dpSessionDate.Value.Date) == 0 && s.GameId == (Int64)cboGame.SelectedValue);
+        if (thisSession == null)
         {
-          SessionDate = DateTime.Parse(dpSessionDate.Text),
-          GameId = (Int64)cboGame.SelectedValue
-        };
-        MainForm.trmnContext.Sessions.Add(thisSession);
-        MainForm.trmnContext.SaveChanges();
-        _sessionId = thisSession.Id;
+          {
+            //Check for exising session, prompt to edit
+            //Add session, get ID
+            thisSession = new Session
+            {
+              SessionDate = DateTime.Parse(dpSessionDate.Text),
+              GameId = (Int64)cboGame.SelectedValue
+            };
+            MainForm.trmnContext.Sessions.Add(thisSession);
+            MainForm.trmnContext.SaveChanges();
+            _sessionId = thisSession.Id;
+          }
+        }
+        else
+        {
+          DialogResult doEdit = MessageBox.Show("A session exists in the system for that date and game combination. Do you want to edit it?", "Session Exists", MessageBoxButtons.YesNo);
+          if (doEdit == DialogResult.Yes)
+          {
+            btnEdit_Click(new object(), new EventArgs());
+          }
+          return;
+        }
       }
 
-
-      sessionPlayers.Add(new MarksmanshipTracker.TrmnPlayer
+      TrmnPlayer thisPlayer = sessionPlayers.FirstOrDefault(p => p.PersonId == (Int64)cboTrmnPlayer.SelectedValue);
+      if (thisPlayer == null)
       {
-        Name = cboTrmnPlayer.Text,
-        SessionId = _sessionId,
-        PersonId = (Int64)cboTrmnPlayer.SelectedValue,
-        Minutes = Convert.ToInt64(txtMinutes.Text)
-      });
-      
-      trmnPlayerBindingSource.DataSource = sessionPlayers;
-      trmnPlayerBindingSource.ResetBindings(false);
+        thisPlayer = new MarksmanshipTracker.TrmnPlayer
+        {
+          Name = cboTrmnPlayer.Text,
+          SessionId = _sessionId,
+          PersonId = (Int64)cboTrmnPlayer.SelectedValue,
+          Minutes = Convert.ToInt64(txtMinutes.Text)
+        };
+        sessionPlayers.Add(thisPlayer);
 
+        trmnPlayerBindingSource.DataSource = sessionPlayers;
+        trmnPlayerBindingSource.ResetBindings(false);
+      }
     }
 
     private void btnSaveNew_Click(object sender, EventArgs e)
@@ -116,7 +135,7 @@ namespace MarksmanshipTracker
         MainForm.trmnContext.SessionParticipants.RemoveRange(MainForm.trmnContext.SessionParticipants.Where(sp => sp.SessionId == _sessionId));
         MainForm.trmnContext.SaveChanges();
       }
-      int totalPlayers = sessionPlayers.Count();
+      int totalPlayers = sessionPlayers.Count() + (int)numXtraPlayers.Value;
       if (totalPlayers < 2)
       {
         MessageBox.Show("Not enough players. Need 2 minimum.");
@@ -131,7 +150,7 @@ namespace MarksmanshipTracker
           SessionId = _sessionId,
           PersonId = p.PersonId,
           Minutes = Convert.ToInt64(p.Minutes),
-          Credits = (p.Minutes / 60) * multiplier
+          Credits = (p.Minutes / 60m) * multiplier
         };
         MainForm.trmnContext.SessionParticipants.Add(sessionPlayer);
       }
@@ -292,7 +311,7 @@ namespace MarksmanshipTracker
       {
         sessionPlayers.Add(new MarksmanshipTracker.TrmnPlayer
         {
-          Name = $"{sp.Person.FirstName} {sp.Person.LastName}",
+          Name = $"{sp.Person.RMNId}: {sp.Person.FirstName} {sp.Person.LastName}",
           SessionId = sp.SessionId,
           PersonId = sp.PersonId,
           Minutes = sp.Minutes.Value

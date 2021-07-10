@@ -55,17 +55,20 @@
       this.btnImportLog = new System.Windows.Forms.Button();
       this.fsImportFile = new System.Windows.Forms.OpenFileDialog();
       this.btnEdit = new System.Windows.Forms.Button();
+      this.numXtraPlayers = new System.Windows.Forms.NumericUpDown();
+      this.label4 = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.gameBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTRMNPerson)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgvPlayers)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.trmnPlayerBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.numXtraPlayers)).BeginInit();
       this.SuspendLayout();
       // 
       // btnSave
       // 
       this.btnSave.Location = new System.Drawing.Point(12, 355);
       this.btnSave.Name = "btnSave";
-      this.btnSave.Size = new System.Drawing.Size(130, 40);
+      this.btnSave.Size = new System.Drawing.Size(110, 40);
       this.btnSave.TabIndex = 0;
       this.btnSave.Text = "Save and Close";
       this.btnSave.UseVisualStyleBackColor = true;
@@ -73,9 +76,9 @@
       // 
       // btnClose
       // 
-      this.btnClose.Location = new System.Drawing.Point(328, 355);
+      this.btnClose.Location = new System.Drawing.Point(305, 355);
       this.btnClose.Name = "btnClose";
-      this.btnClose.Size = new System.Drawing.Size(130, 40);
+      this.btnClose.Size = new System.Drawing.Size(123, 40);
       this.btnClose.TabIndex = 1;
       this.btnClose.Text = "Close/Cancel";
       this.btnClose.UseVisualStyleBackColor = true;
@@ -85,7 +88,7 @@
       // 
       this.dpSessionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.dpSessionDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-      this.dpSessionDate.Location = new System.Drawing.Point(100, 26);
+      this.dpSessionDate.Location = new System.Drawing.Point(15, 25);
       this.dpSessionDate.Name = "dpSessionDate";
       this.dpSessionDate.Size = new System.Drawing.Size(107, 26);
       this.dpSessionDate.TabIndex = 2;
@@ -96,9 +99,9 @@
       this.cboGame.DisplayMember = "GameName";
       this.cboGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.cboGame.FormattingEnabled = true;
-      this.cboGame.Location = new System.Drawing.Point(255, 25);
+      this.cboGame.Location = new System.Drawing.Point(156, 25);
       this.cboGame.Name = "cboGame";
-      this.cboGame.Size = new System.Drawing.Size(173, 28);
+      this.cboGame.Size = new System.Drawing.Size(272, 28);
       this.cboGame.TabIndex = 3;
       this.cboGame.ValueMember = "Id";
       // 
@@ -109,7 +112,7 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(98, 10);
+      this.label1.Location = new System.Drawing.Point(13, 9);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(70, 13);
       this.label1.TabIndex = 4;
@@ -118,7 +121,7 @@
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(252, 9);
+      this.label2.Location = new System.Drawing.Point(153, 9);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(70, 13);
       this.label2.TabIndex = 5;
@@ -130,9 +133,9 @@
       this.cboTrmnPlayer.DisplayMember = "Name";
       this.cboTrmnPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.cboTrmnPlayer.FormattingEnabled = true;
-      this.cboTrmnPlayer.Location = new System.Drawing.Point(100, 87);
+      this.cboTrmnPlayer.Location = new System.Drawing.Point(12, 87);
       this.cboTrmnPlayer.Name = "cboTrmnPlayer";
-      this.cboTrmnPlayer.Size = new System.Drawing.Size(185, 28);
+      this.cboTrmnPlayer.Size = new System.Drawing.Size(273, 28);
       this.cboTrmnPlayer.TabIndex = 6;
       this.cboTrmnPlayer.ValueMember = "Id";
       this.cboTrmnPlayer.SelectedValueChanged += new System.EventHandler(this.cboTrmnPlayer_SelectedValueChanged);
@@ -153,7 +156,7 @@
       // label3
       // 
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(97, 71);
+      this.label3.Location = new System.Drawing.Point(12, 71);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(71, 13);
       this.label3.TabIndex = 8;
@@ -171,7 +174,7 @@
       // btnAddPlayer
       // 
       this.btnAddPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnAddPlayer.Location = new System.Drawing.Point(497, 130);
+      this.btnAddPlayer.Location = new System.Drawing.Point(434, 130);
       this.btnAddPlayer.Name = "btnAddPlayer";
       this.btnAddPlayer.Size = new System.Drawing.Size(115, 36);
       this.btnAddPlayer.TabIndex = 12;
@@ -181,9 +184,9 @@
       // 
       // btnSaveNew
       // 
-      this.btnSaveNew.Location = new System.Drawing.Point(168, 355);
+      this.btnSaveNew.Location = new System.Drawing.Point(156, 355);
       this.btnSaveNew.Name = "btnSaveNew";
-      this.btnSaveNew.Size = new System.Drawing.Size(130, 40);
+      this.btnSaveNew.Size = new System.Drawing.Size(124, 40);
       this.btnSaveNew.TabIndex = 14;
       this.btnSaveNew.Text = "Save and Add Another";
       this.btnSaveNew.UseVisualStyleBackColor = true;
@@ -192,7 +195,7 @@
       // btnRemove
       // 
       this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnRemove.Location = new System.Drawing.Point(497, 172);
+      this.btnRemove.Location = new System.Drawing.Point(434, 172);
       this.btnRemove.Name = "btnRemove";
       this.btnRemove.Size = new System.Drawing.Size(138, 36);
       this.btnRemove.TabIndex = 15;
@@ -203,7 +206,7 @@
       // btnClear
       // 
       this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnClear.Location = new System.Drawing.Point(497, 214);
+      this.btnClear.Location = new System.Drawing.Point(434, 214);
       this.btnClear.Name = "btnClear";
       this.btnClear.Size = new System.Drawing.Size(91, 36);
       this.btnClear.TabIndex = 16;
@@ -215,7 +218,6 @@
       // 
       this.dgvPlayers.AllowUserToAddRows = false;
       this.dgvPlayers.AutoGenerateColumns = false;
-      this.dgvPlayers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
       this.dgvPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.dgvPlayers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PersonName,
@@ -233,14 +235,16 @@
       this.dgvPlayers.DefaultCellStyle = dataGridViewCellStyle1;
       this.dgvPlayers.Location = new System.Drawing.Point(12, 130);
       this.dgvPlayers.Name = "dgvPlayers";
-      this.dgvPlayers.Size = new System.Drawing.Size(479, 219);
+      this.dgvPlayers.Size = new System.Drawing.Size(416, 219);
       this.dgvPlayers.TabIndex = 17;
       // 
       // PersonName
       // 
       this.PersonName.DataPropertyName = "Name";
+      this.PersonName.FillWeight = 123.8579F;
       this.PersonName.HeaderText = "Name";
       this.PersonName.Name = "PersonName";
+      this.PersonName.Width = 300;
       // 
       // PersonId
       // 
@@ -259,8 +263,10 @@
       // Minutes
       // 
       this.Minutes.DataPropertyName = "Minutes";
+      this.Minutes.FillWeight = 76.14214F;
       this.Minutes.HeaderText = "Minutes";
       this.Minutes.Name = "Minutes";
+      this.Minutes.Width = 75;
       // 
       // trmnPlayerBindingSource
       // 
@@ -268,9 +274,9 @@
       // 
       // btnImportLog
       // 
-      this.btnImportLog.Location = new System.Drawing.Point(487, 355);
+      this.btnImportLog.Location = new System.Drawing.Point(443, 355);
       this.btnImportLog.Name = "btnImportLog";
-      this.btnImportLog.Size = new System.Drawing.Size(134, 40);
+      this.btnImportLog.Size = new System.Drawing.Size(129, 40);
       this.btnImportLog.TabIndex = 18;
       this.btnImportLog.Text = "Import Session Log";
       this.btnImportLog.UseVisualStyleBackColor = true;
@@ -283,7 +289,7 @@
       // btnEdit
       // 
       this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnEdit.Location = new System.Drawing.Point(501, 21);
+      this.btnEdit.Location = new System.Drawing.Point(439, 19);
       this.btnEdit.Name = "btnEdit";
       this.btnEdit.Size = new System.Drawing.Size(110, 32);
       this.btnEdit.TabIndex = 19;
@@ -291,11 +297,30 @@
       this.btnEdit.UseVisualStyleBackColor = true;
       this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
       // 
+      // numXtraPlayers
+      // 
+      this.numXtraPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.numXtraPlayers.Location = new System.Drawing.Point(439, 89);
+      this.numXtraPlayers.Name = "numXtraPlayers";
+      this.numXtraPlayers.Size = new System.Drawing.Size(34, 26);
+      this.numXtraPlayers.TabIndex = 20;
+      // 
+      // label4
+      // 
+      this.label4.Location = new System.Drawing.Point(470, 89);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(90, 28);
+      this.label4.TabIndex = 21;
+      this.label4.Text = " # TRMN players not reported";
+      this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+      // 
       // SessionsForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(649, 402);
+      this.ClientSize = new System.Drawing.Size(593, 402);
+      this.Controls.Add(this.label4);
+      this.Controls.Add(this.numXtraPlayers);
       this.Controls.Add(this.btnEdit);
       this.Controls.Add(this.btnImportLog);
       this.Controls.Add(this.dgvPlayers);
@@ -320,6 +345,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTRMNPerson)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dgvPlayers)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.trmnPlayerBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.numXtraPlayers)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -345,12 +371,14 @@
     private System.Windows.Forms.Button btnClear;
     private System.Windows.Forms.DataGridView dgvPlayers;
     private System.Windows.Forms.BindingSource trmnPlayerBindingSource;
+    private System.Windows.Forms.Button btnImportLog;
+    private System.Windows.Forms.OpenFileDialog fsImportFile;
+    private System.Windows.Forms.Button btnEdit;
     private System.Windows.Forms.DataGridViewTextBoxColumn PersonName;
     private System.Windows.Forms.DataGridViewTextBoxColumn PersonId;
     private System.Windows.Forms.DataGridViewTextBoxColumn SessionId;
     private System.Windows.Forms.DataGridViewTextBoxColumn Minutes;
-    private System.Windows.Forms.Button btnImportLog;
-    private System.Windows.Forms.OpenFileDialog fsImportFile;
-    private System.Windows.Forms.Button btnEdit;
+    private System.Windows.Forms.NumericUpDown numXtraPlayers;
+    private System.Windows.Forms.Label label4;
   }
 }
