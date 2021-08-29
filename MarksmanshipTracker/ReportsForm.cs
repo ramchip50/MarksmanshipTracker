@@ -18,6 +18,7 @@ namespace MarksmanshipTracker
 {
   public partial class ReportsForm : Form
   {
+    List<TrmnPerson> players = new List<TrmnPerson>();
 
     private List<PeopleSessionLog> periodLog;
     private List<PeopleCumulativeLog> cumulativeLog;
@@ -30,6 +31,8 @@ namespace MarksmanshipTracker
       _tdbConn.Open();
     }
 
+
+
     private void btnGo_Click(object sender, EventArgs e)
     {
       if (rdoSessionLog.Checked) LoadSessionLog();
@@ -40,7 +43,10 @@ namespace MarksmanshipTracker
       string periodStart = dpStart.Value.ToString("yyyy-MM-dd");
       string periodEnd = dpEnd.Value.AddDays(1).ToString("yyyy-MM-dd");
 
+
       string logCmd = $"Select * from PeopleSessionLog Where SessionDate >= '{periodStart}' And SessionDate <= '{periodEnd}'";
+      if (((TrmnPerson)cboTrmnPerson.SelectedValue).Id != 0)  logCmd = logCmd + $"And PersonId = {((TrmnPerson)cboTrmnPerson.SelectedValue).Id}"; 
+
       periodLog = new List<PeopleSessionLog>();
       SQLiteCommand tdbCmd = new SQLiteCommand(logCmd, _tdbConn);
 
@@ -74,6 +80,8 @@ namespace MarksmanshipTracker
       //Create PCL List
       cumulativeLog = new List<PeopleCumulativeLog>();
       string logCmd = "Select * from PeopleCumulativeLog";
+      if (((TrmnPerson)cboTrmnPerson2.SelectedValue).Id != 0) logCmd = logCmd + $" Where PersonId = {((TrmnPerson)cboTrmnPerson2.SelectedValue).Id}";
+
       SQLiteCommand tdbCmd = new SQLiteCommand(logCmd, _tdbConn);
 
       using (SQLiteDataReader rdr = tdbCmd.ExecuteReader())
@@ -257,6 +265,29 @@ namespace MarksmanshipTracker
     {
         LoadAwards(((CheckBox)sender).Checked);
     }
+
+    private void ReportsForm_Load(object sender, EventArgs e)
+    {
+      List<Person> ppl = MainForm.trmnContext.People.OrderBy(p => p.LastName).ToList();
+      players.Add(new TrmnPerson { Name = "ALL", Id = 0 });
+
+      foreach (Person p in ppl)
+      {
+        players.Add(new MarksmanshipTracker.TrmnPerson
+        {
+          Id = p.Id,
+          Name = $"{p.RMNId}: {p.LastName}, {p.FirstName}"
+        });
+      }
+      bindingSourceTRMNPerson.DataSource = players;
+      
+    }
+
+    private void cboTrmnPerson2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      LoadCumLog();
+    }
+  }
   }
   
-}
+
