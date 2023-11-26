@@ -22,8 +22,8 @@ namespace MarksmanshipTracker
     private void GamesForm_Load(object sender, EventArgs e)
     {
       MainForm.trmnContext.Games.Load();
-
       gamesBindingSource.DataSource = MainForm.trmnContext.Games.Local.ToBindingList();
+          
     }
 
     private void btnClose_Click(object sender, EventArgs e)

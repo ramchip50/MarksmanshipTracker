@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30611.23
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarksmanshipTracker", "MarksmanshipTracker\MarksmanshipTracker.csproj", "{FCB85AF5-C092-492A-98F3-28C6869CBD62}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MarksmanshipTrackerInstaller", "MarksmanshipTrackerInstaller\MarksmanshipTrackerInstaller.vdproj", "{C715A7F1-0D13-46CE-9911-9811DD0B224A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,17 @@ Global
 		{FCB85AF5-C092-492A-98F3-28C6869CBD62}.Release|x64.Build.0 = Release|Any CPU
 		{FCB85AF5-C092-492A-98F3-28C6869CBD62}.Release|x86.ActiveCfg = Release|Any CPU
 		{FCB85AF5-C092-492A-98F3-28C6869CBD62}.Release|x86.Build.0 = Release|Any CPU
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Debug|Any CPU.ActiveCfg = Debug
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Debug|ARM.ActiveCfg = Debug
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Debug|ARM64.ActiveCfg = Debug
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Debug|x64.ActiveCfg = Debug
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Debug|x86.ActiveCfg = Debug
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Release|Any CPU.ActiveCfg = Release
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Release|Any CPU.Build.0 = Release
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Release|ARM.ActiveCfg = Release
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Release|ARM64.ActiveCfg = Release
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Release|x64.ActiveCfg = Release
+		{C715A7F1-0D13-46CE-9911-9811DD0B224A}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

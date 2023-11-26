@@ -45,9 +45,10 @@ namespace MarksmanshipTracker
 
 
       string logCmd = $"Select * from PeopleSessionLog Where SessionDate >= '{periodStart}' And SessionDate <= '{periodEnd}'";
-      if (((TrmnPerson)cboTrmnPerson.SelectedValue).Id != 0)  logCmd = logCmd + $"And PersonId = {((TrmnPerson)cboTrmnPerson.SelectedValue).Id}"; 
+      if (rdoPerson.Checked && ((TrmnPerson)cboTrmnPerson.SelectedValue).Id != 0)  logCmd = logCmd + $"And PersonId = {((TrmnPerson)cboTrmnPerson.SelectedValue).Id}";
+      if (rdoShip.Checked) logCmd = logCmd + $" And ShipName = '{((Ship)cboTrmnPerson.SelectedValue).ShipName}'";
 
-      periodLog = new List<PeopleSessionLog>();
+            periodLog = new List<PeopleSessionLog>();
       SQLiteCommand tdbCmd = new SQLiteCommand(logCmd, _tdbConn);
 
       using (SQLiteDataReader rdr = tdbCmd.ExecuteReader()) {
@@ -211,7 +212,17 @@ namespace MarksmanshipTracker
       string thisFile = $"EarnedAwards_{DateTime.Now.ToString("yyyy-MM-dd")}";
       savExport.FileName = thisFile;
       savExport.ShowDialog();
-      engine.WriteFile(savExport.FileName, ribbonRacks);
+            if (chkLast.Checked)
+            {
+                DateTime startDate = DateTime.Now.AddDays((double)numDays.Value * -1).Date;
+                engine.WriteFile(savExport.FileName,
+                ribbonRacks.Where(rr => (rr.DatePistolAwarded.HasValue && rr.DatePistolAwarded.Value.CompareTo(startDate) >= 0)
+                || (rr.DateRifleAwarded.HasValue && rr.DateRifleAwarded.Value.CompareTo(startDate) >= 0)).ToList());
+            }
+            else
+            {
+                engine.WriteFile(savExport.FileName, ribbonRacks);
+            }
     }
 
     private void btnExit_Click(object sender, EventArgs e)
@@ -280,6 +291,7 @@ namespace MarksmanshipTracker
         });
       }
       bindingSourceTRMNPerson.DataSource = players;
+            bindingSourceShips.DataSource = MainForm.trmnContext.Ships.OrderBy(s => s.ShipName).ToList();  
       
     }
 
@@ -287,7 +299,31 @@ namespace MarksmanshipTracker
     {
       LoadCumLog();
     }
-  }
+
+        private void rdoShip_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoShip.Checked)
+            {
+                //Fill Drop Down with Ships
+                cboTrmnPerson.DataSource = bindingSourceShips;
+                cboTrmnPerson.DisplayMember = "ShipName";
+                rdoPerson.Checked = false;
+                cboTrmnPerson.Refresh();
+            }
+        }
+
+        private void rdoPerson_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoPerson.Checked)
+            {
+                //Fill Drop Dowm with persons
+                cboTrmnPerson.DataSource = bindingSourceTRMNPerson;
+                cboTrmnPerson.DisplayMember = "Name";
+                rdoShip.Checked = false;
+                cboTrmnPerson.Refresh();
+            }
+        }
+    }
   }
   
 
